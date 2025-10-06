@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Blog</h1>
+            <p class="text-gray-600">最新の記事をお楽しみください</p>
+        </header>
+
+        <!-- No Posts Message -->
+        <div class="text-center py-16">
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-12">
+                <div class="mb-6">
+                    <svg class="w-16 h-16 text-gray-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">まだ投稿がありません</h2>
+                <p class="text-gray-600 leading-relaxed mb-8">
+                    現在、公開されている記事はありません。<br>
+                    新しい記事が投稿されるまで、しばらくお待ちください。
+                </p>
+                <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
+                    <button class="w-full sm:w-auto px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors duration-200">
+                        ホームに戻る
+                    </button>
+                    <button class="w-full sm:w-auto px-6 py-3 bg-white text-gray-700 font-medium border border-gray-300 rounded-md hover:bg-gray-50 transition-colors duration-200">
+                        更新する
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Content -->
+        <div class="mt-16">
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">このブログについて</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    こちらのブログでは、Webデザイン、フロントエンド開発、最新の技術トレンドなどについての記事を定期的に投稿しています。新しい記事が公開されましたら、こちらのページでご確認いただけます。
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

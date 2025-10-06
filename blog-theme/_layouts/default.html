@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>%{BLOG_NAME}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        li span[data-status="current"] {
+            background-color: #000;
+            color: white;
+        }
+    </style>
+
+    <link rel="stylesheet" href="/css/acms-admin.min.css">
+    <script src="%{JS_LIB_JQUERY_DIR}jquery-%{JS_LIB_JQUERY_DIR_VERSION}.min.js" charset="UTF-8"></script>
+    <!-- BEGIN_MODULE Js -->
+    <script src="%{ROOT_DIR}acms.js{arguments}" charset="UTF-8" id="acms-js"></script><!-- END_MODULE Js -->
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    @include("/admin/action.html")
+    <div class="max-w-4xl mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="mb-12">
+            <h1 class="text-4xl font-b361700
+            old text-gray-800 mb-2">%{BLOG_NAME}</h1>
+        </header>
+
+        @section("main")
+        @endsection
+
+    </div>
+</body>
+
+</html>

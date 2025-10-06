@@ -1,0 +1,109 @@
+@extends("/_layouts/default.html")
+
+@section("main")
+        <!-- BEGIN_MODULE Touch_Category -->
+        <h2 class="text-2xl mb-5">%{CATEGORY_NAME}</h2>
+        <!-- END_MODULE Touch_Category -->
+        <!-- BEGIN_MODULE Touch_Tag -->
+        <h2 class="text-2xl mb-5">タグ：%{TAG}</h2>
+        <!-- END_MODULE Touch_Tag -->
+
+        <!-- INSERT_YOUR_CODE -->
+        <!-- カテゴリ一覧 -->
+        <!-- BEGIN_MODULE Category_List id="category_nav" -->
+        <section class="mb-12">
+            @include("/admin/module/setting.html")
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">カテゴリ</h2>
+            <ul class="flex flex-wrap gap-3">
+                <!-- BEGIN category:loop -->
+                <!-- BEGIN category:veil -->
+                <li>
+                    <!-- BEGIN_IF [{selected}/nem] -->
+                    <a href="{url}" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-full font-bold cursor-default">{name}</a>
+                    <!-- ELSE -->
+                    <a href="{url}" class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition-colors duration-200">{name}</a>
+                    <!-- END_IF -->
+                </li>
+                <!-- END category:veil -->
+                <!-- END category:loop -->
+            </ul>
+        </section>
+        <!-- END_MODULE Category_List -->
+
+        <!-- Blog Posts -->
+        <!-- BEGIN_MODULE Entry_Summary　id="entry_list" -->
+        @include("/admin/module/setting.html")
+        <!-- BEGIN notFound -->
+        <p>ただいまページを準備しております。もうしばらくお待ちください。</p>
+        <!-- END notFound -->
+
+        <div class="space-y-8">
+            <!-- Post 1 -->
+            <!-- BEGIN unit:loop -->
+            <!-- BEGIN entry:loop -->
+            <a href="{url}" class="block">
+                <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200 cursor-pointer">
+                    <div class="md:flex">
+                        <div class="md:w-1/3">
+                            <!-- BEGIN_IF [{path}/nem] -->
+                            <img src="%{ROOT_DIR}{path}" alt="" class="w-full h-48 md:h-full object-cover">
+                            <!-- ELSE -->
+                            <img src="assets/img/no-image.png" alt="" class="w-full h-48 md:h-full object-cover">
+                            <!-- END_IF -->
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <time datetime="{date#Y}-{date#m}-{date#d}">{date#Y}年{date#n}月{date#j}日</time>
+                            </div>
+                            <h2 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors">
+                                {title}
+                            </h2>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                {summary}
+                            </p>
+                            <span class="text-blue-600 hover:text-blue-800 font-medium text-sm">
+                                続きを読む →
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+            <!-- END entry:loop -->
+            <!-- END unit:loop -->
+        </div>
+
+        <!-- Pagination -->
+        <!-- BEGIN pager:veil -->
+        <div class="mt-12 flex justify-center">
+            <nav class="flex space-x-2">
+                <ul class="flex gap-2">
+                    <!-- BEGIN backLink -->
+                    <li>
+                        <a href="{url}">
+                            <span class="px-3 py-2 text-sm font-medium border rounded-md border-gray-300">
+                                前へ
+                            </span>
+                        </a>
+                    </li>
+                    <!-- END backLink -->
+                    <!-- BEGIN page:loop -->
+                    <li>
+                        <!-- BEGIN link#front --><a href="{url}"><!-- END link#front -->
+                            <span {pageCurAttr}[raw] class="px-3 py-2 text-sm font-medium border rounded-md border-gray-300">{page}</span>
+                        <!-- BEGIN link#rear --></a><!-- END link#rear -->
+                    </li>
+                    <!-- END page:loop -->
+                    <!-- BEGIN forwardLink -->
+                    <li>
+                        <a href="{url}">
+                            <span class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
+                            次へ
+                            </span>
+                        </a>
+                    </li>
+                    <!-- END forwardLink -->
+                </ul>
+            </nav>
+        </div>
+        <!-- END_MODULE Entry_Summary -->
+@endsection

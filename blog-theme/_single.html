@@ -1,0 +1,95 @@
+@extends("/_layouts/default.html")
+
+@section("main")
+        <!-- Navigation -->
+        <nav class="mb-8">
+            <a href="index.html" class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center">
+                ← ブログ一覧に戻る
+            </a>
+        </nav>
+
+        <!-- Article -->
+        <!-- BEGIN_MODULE Entry_Body -->
+        <!-- BEGIN entry:loop -->
+        <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+            <!-- Featured Image -->
+            <!-- BEGIN mainImage -->
+            <!-- BEGIN_IF [{path}/nem] -->
+            <div class="w-full h-64 md:h-80">
+                <img src="{path}" 
+                     alt="" 
+                     class="w-full h-full object-cover">
+            </div>
+            <!-- END_IF -->
+            <!-- END mainImage -->
+
+            <!-- Article Content -->
+            <div class="p-6 md:p-8">
+                <!-- Meta -->
+                <div class="flex items-center text-sm text-gray-500 mb-4">
+                    <time datetime="{date#Y}-{date#m}-{date#d}">{date#Y}年{date#n}月{date#j}日</time>
+                    <!-- BEGIN category:veil -->
+                    <span class="mx-2">•</span>
+                    <!-- BEGIN category:loop -->
+                    <a href="{url}" class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">{name}</a>
+                    <!-- BEGIN glue -->
+                    <
+                    <!-- END glue -->
+                    <!-- END category:loop -->
+                    <!-- END category:veil -->
+                </div>
+
+                <!-- Title -->
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 leading-tight">
+                    {title}
+                </h1>
+
+                <!-- Article Body -->
+                <div class="prose prose-gray max-w-none">
+                    @include("/include/unit.html")
+                </div>
+
+                <!-- Tags -->
+                <!-- BEGIN tag:veil -->
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <div class="flex flex-wrap gap-2">
+                        <!-- BEGIN tag:loop -->
+                        <a href="{url}" class="text-blue-800 text-xs px-2 py-1">#{name}</a>
+                        <!-- END tag:loop -->
+                    </div>
+                </div>
+                <!-- END tag:veil -->
+            </div>
+        </article>
+
+        @include("/admin/entry/action.html")
+        <!-- END entry:loop -->
+        <!-- END_MODULE Entry_Body -->
+
+        
+        <!-- Related Posts -->
+        <!-- BEGIN_MODULE Entry_TagRelational id="relational_entry" -->
+        <section class="mt-12">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">関連記事</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                @include("/admin/module/setting.html")
+                <!-- BEGIN entry:loop -->
+                <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200">
+                    <!-- BEGIN_IF [{path}/nem] -->
+                    <img src="%{ROOT_DIR}{path}" alt="" class="w-full h-32 object-cover">
+                    <!-- ELSE -->
+                    <img src="assets/img/no-image.png" alt="" class="w-full h-32 object-cover">
+                    <!-- END_IF -->
+                    <div class="p-4">
+                        <time class="text-sm text-gray-500">{date#Y}年{date#n}月{date#j}日</time>
+                        <h3 class="text-lg font-semibold text-gray-800 mt-1 mb-2 hover:text-blue-600 transition-colors">
+                            <a href="{url}">{title}</a>
+                        </h3>
+                        <p class="text-gray-600 text-sm">{summary}</p>
+                    </div>
+                </article>
+                <!-- END entry:loop -->
+            </div>
+        </section>
+        <!-- END_MODULE Entry_TagRelational -->
+@endsection

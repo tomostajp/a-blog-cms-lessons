@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        li span[data-status="current"] {
+            background-color: #000;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Blog</h1>
+        </header>
+
+        <!-- INSERT_YOUR_CODE -->
+        <!-- カテゴリ一覧 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">カテゴリ</h2>
+            <ul class="flex flex-wrap gap-3">
+                <li>
+                    <a href="#" class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition-colors duration-200">Webデザイン</a>
+                </li>
+                <li>
+                    <a href="#" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-full font-bold cursor-default">フロントエンド</a>
+                </li>
+                <li>
+                    <a href="#" class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition-colors duration-200">JavaScript</a>
+                </li>
+                <li>
+                    <a href="#" class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition-colors duration-200">技術トレンド</a>
+                </li>
+                <li>
+                    <a href="#" class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition-colors duration-200">その他</a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Blog Posts -->
+        <div class="space-y-8">
+            <!-- Post 1 -->
+            <a href="single.html" class="block">
+                <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200 cursor-pointer">
+                    <div class="md:flex">
+                        <div class="md:w-1/3">
+                            <img src="assets/img/no-image.png" alt="サンプル画像" class="w-full h-48 md:h-full object-cover">
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <time datetime="2024-01-15">2024年1月15日</time>
+                            </div>
+                            <h2 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors">
+                                Webデザインの最新トレンド2024
+                            </h2>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                2024年のWebデザインにおける最新のトレンドを紹介します。ミニマルデザインから大胆なタイポグラフィまで、今年注目すべきデザイン要素について詳しく解説します。
+                            </p>
+                            <span class="text-blue-600 hover:text-blue-800 font-medium text-sm">
+                                続きを読む →
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+
+            <!-- Post 2 -->
+            <a href="single.html" class="block">
+                <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200 cursor-pointer">
+                    <div class="md:flex">
+                        <div class="md:w-1/3">
+                            <img src="assets/img/no-image.png" alt="技術記事画像" class="w-full h-48 md:h-full object-cover">
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <time datetime="2024-01-10">2024年1月10日</time>
+                            </div>
+                            <h2 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors">
+                                JavaScript ES2024の新機能
+                            </h2>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                ECMAScript 2024で追加された新しい機能について詳しく解説します。新しい配列メソッドやプロミス関連の機能など、開発者にとって便利な機能を実例とともに紹介。
+                            </p>
+                            <span class="text-blue-600 hover:text-blue-800 font-medium text-sm">
+                                続きを読む →
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+
+            <!-- Post 3 -->
+            <a href="single.html" class="block">
+                <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200 cursor-pointer">
+                    <div class="md:flex">
+                        <div class="md:w-1/3">
+                            <img src="assets/img/no-image.png" alt="チュートリアル画像" class="w-full h-48 md:h-full object-cover">
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <time datetime="2024-01-05">2024年1月5日</time>
+                            </div>
+                            <h2 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors">
+                                TailwindCSSを使った効率的なスタイリング
+                            </h2>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                TailwindCSSを使用してより効率的にWebサイトをスタイリングする方法を学びます。ユーティリティファーストのアプローチで開発速度を向上させるテクニックを紹介。
+                            </p>
+                            <span class="text-blue-600 hover:text-blue-800 font-medium text-sm">
+                                続きを読む →
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <!-- Pagination -->
+        <div class="mt-12 flex justify-center">
+            <nav class="flex space-x-2">
+                <ul class="flex gap-2">
+                    <li>
+                        <a href="#">
+                            <span class="px-3 py-2 text-sm font-medium border rounded-md border-gray-300">
+                                前へ
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        
+                            <span data-status="current" class="px-3 py-2 text-sm font-medium border rounded-md border-gray-300">1</span>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="px-3 py-2 text-sm font-medium border rounded-md border-gray-300">
+                                2
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
+                            次へ
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</body>
+
+</html>
