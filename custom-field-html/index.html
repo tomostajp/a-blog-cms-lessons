@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>書籍検索 - Bookshop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .author-list li:not(:last-child)::after {
+            content: ' / ';
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">書籍検索</h1>
+            <p class="text-gray-600">お探しの書籍を検索できます</p>
+        </header>
+
+        <!-- Search Form -->
+        <section class="mb-12">
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Title Search -->
+                        <div>
+                            <label for="title" class="block text-sm font-medium text-gray-700 mb-2">
+                                著者名
+                            </label>
+                            <input type="text" id="title" name="title" placeholder="著者名を入力" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors">
+                        </div>
+
+                        <!-- Genre Select -->
+                        <div>
+                            <label for="genre" class="block text-sm font-medium text-gray-700 mb-2">
+                                ジャンル
+                            </label>
+                            <select id="genre" name="genre" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors bg-white">
+                                <option value="">すべて</option>
+                                <option value="novel">小説</option>
+                                <option value="business">ビジネス</option>
+                                <option value="tech">技術書</option>
+                                <option value="hobby">趣味・実用</option>
+                                <option value="other">その他</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="order" class="block text-sm font-medium text-gray-700 mb-2">
+                                並び順
+                            </label>
+                            <select id="order" name="order" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors bg-white">
+                                <option value="newest">新着順</option>
+                                <option value="oldest">古い順</option>
+                                <option value="intprice-asc">価格が安い順</option>
+                                <option value="intprice-desc">価格が高い順</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Search Button -->
+                    <div class="flex justify-center">
+                        <button type="submit" class="px-8 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            検索する
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Search Results -->
+        <section>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">検索結果</h2>
+
+            <div class="space-y-6">
+                <!-- Book 1 -->
+                <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200">
+                    <div class="md:flex">
+                        <div class="md:w-48 md:flex-shrink-0">
+                            <img src="https://placehold.co/400x600/3b82f6/ffffff?text=JavaScript" alt="プログラミング入門：JavaScript完全ガイド" class="w-full h-64 md:h-full object-cover">
+                        </div>
+                        <div class="md:flex-1 p-6">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="inline-block px-3 py-1 bg-red-500 text-white text-sm font-semibold rounded-full">注目の商品</span>
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full">技術書</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                                プログラミング入門：JavaScript完全ガイド
+                            </h3>
+                            <div class="flex text-sm text-gray-600 mb-3">
+                                <span>著者：</span>
+                                <ul class="flex flex-row gap-1 author-list">
+                                    <li>田中一郎</li>
+                                    <li>木村春子</li>
+                                </ul>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                JavaScriptの基礎から応用まで、初心者にもわかりやすく解説した実践的なプログラミング入門書。最新のES2024の機能も網羅し、実務で使える知識を身につけることができます。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-800 text-lg font-bold">¥3,280</span>
+                                <a href="detail.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition-colors inline-block">
+                                    詳細を見る
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 2 -->
+                <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200">
+                    <div class="md:flex">
+                        <div class="md:w-48 md:flex-shrink-0">
+                            <img src="https://placehold.co/400x600/10b981/ffffff?text=Marketing" alt="デジタル時代のマーケティング戦略" class="w-full h-64 md:h-full object-cover">
+                        </div>
+                        <div class="md:flex-1 p-6">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full">ビジネス</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                                デジタル時代のマーケティング戦略
+                            </h3>
+                            <div class="flex text-sm text-gray-600 mb-3">
+                                <span>著者：</span>
+                                <ul class="flex flex-row gap-1 author-list">
+                                    <li>田中一郎</li>
+                                    <li>木村春子</li>
+                                </ul>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                SNS、動画配信、AIを活用した最新のマーケティング手法を徹底解説。成功事例を交えながら、すぐに実践できる具体的な戦略を紹介します。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-800 text-lg font-bold">¥2,980</span>
+                                <a href="detail.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition-colors inline-block">
+                                    詳細を見る
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 3 -->
+                <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200">
+                    <div class="md:flex">
+                        <div class="md:w-48 md:flex-shrink-0">
+                            <img src="https://placehold.co/400x600/a855f7/ffffff?text=Novel" alt="時を超える物語" class="w-full h-64 md:h-full object-cover">
+                        </div>
+                        <div class="md:flex-1 p-6">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full">小説</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                                時を超える物語
+                            </h3>
+                            <div class="flex text-sm text-gray-600 mb-3">
+                                <span>著者：</span>
+                                <ul class="flex flex-row gap-1 author-list">
+                                    <li>田中一郎</li>
+                                    <li>木村春子</li>
+                                </ul>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                過去と現在を行き来する主人公が、歴史の謎を解き明かしていく壮大なファンタジー小説。緻密な世界観と予測不可能な展開で読者を魅了します。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-800 text-lg font-bold">¥1,680</span>
+                                <a href="detail.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition-colors inline-block">
+                                    詳細を見る
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 4 -->
+                <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200">
+                    <div class="md:flex">
+                        <div class="md:w-48 md:flex-shrink-0">
+                            <img src="https://placehold.co/400x600/f97316/ffffff?text=Art" alt="はじめての水彩画：基礎から学ぶ風景画" class="w-full h-64 md:h-full object-cover">
+                        </div>
+                        <div class="md:flex-1 p-6">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="inline-block px-3 py-1 bg-red-500 text-white text-sm font-semibold rounded-full">注目の商品</span>
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full">趣味・実用</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                                はじめての水彩画：基礎から学ぶ風景画
+                            </h3>
+                            <div class="flex text-sm text-gray-600 mb-3">
+                                <span>著者：</span>
+                                <ul class="flex flex-row gap-1 author-list">
+                                    <li>田中一郎</li>
+                                    <li>木村春子</li>
+                                </ul>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                水彩画の基本技法から、実践的な風景画の描き方まで、豊富なイラストとステップバイステップの解説で誰でも簡単に始められます。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-800 text-lg font-bold">¥2,450</span>
+                                <a href="detail.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition-colors inline-block">
+                                    詳細を見る
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 5 -->
+                <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200">
+                    <div class="md:flex">
+                        <div class="md:w-48 md:flex-shrink-0">
+                            <img src="https://placehold.co/400x600/ef4444/ffffff?text=Web+Design" alt="Webデザインの教科書：HTML & CSS基礎" class="w-full h-64 md:h-full object-cover">
+                        </div>
+                        <div class="md:flex-1 p-6">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full">技術書</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                                Webデザインの教科書：HTML & CSS基礎
+                            </h3>
+                            <div class="flex text-sm text-gray-600 mb-3">
+                                <span>著者：</span>
+                                <ul class="flex flex-row gap-1 author-list">
+                                    <li>田中一郎</li>
+                                    <li>木村春子</li>
+                                </ul>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                HTMLとCSSの基礎から、レスポンシブデザインの実装まで、実際に手を動かしながら学べる実践的な入門書。最新のWebデザイントレンドも網羅。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-800 text-lg font-bold">¥2,880</span>
+                                <a href="detail.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition-colors inline-block">
+                                    詳細を見る
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 6 -->
+                <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200">
+                    <div class="md:flex">
+                        <div class="md:w-48 md:flex-shrink-0">
+                            <img src="https://placehold.co/400x600/14b8a6/ffffff?text=Note+Taking" alt="効率的なノート術：仕事と学習が変わる" class="w-full h-64 md:h-full object-cover">
+                        </div>
+                        <div class="md:flex-1 p-6">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full">その他</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                                効率的なノート術：仕事と学習が変わる
+                            </h3>
+                            <div class="flex text-sm text-gray-600 mb-3">
+                                <span>著者：</span>
+                                <ul class="flex flex-row gap-1 author-list">
+                                    <li>田中一郎</li>
+                                    <li>木村春子</li>
+                                </ul>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                デジタルとアナログを融合させた最新のノート術を紹介。情報整理、アイデア創出、タスク管理まで、生産性を飛躍的に高めるテクニック満載。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-800 text-lg font-bold">¥1,780</span>
+                                <a href="detail.html" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition-colors inline-block">
+                                    詳細を見る
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Result Count -->
+        <div class="mt-8 text-center text-gray-600">
+            <p>全6件の書籍が見つかりました</p>
+        </div>
+    </div>
+</body>
+
+</html>

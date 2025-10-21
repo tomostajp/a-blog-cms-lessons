@@ -1,0 +1,100 @@
+@include("/admin/entry/field-seo.html")
+
+<!-- <form action="" method="post" class="js-validator" enctype="multipart/form-data"> -->
+<div class="acms-admin-grid-edit-table">
+  <div class="acms-admin-d-flex acms-admin-flex-column acms-admin-flex-md-row">
+    <label class="acms-admin-grid-edit-table-heading" for="price">
+      <span data-validator="price">価格</span>
+      <i class="acms-admin-icon-tooltip js-acms-tooltip-hover" data-acms-tooltip="数字のみ入力してください"></i>
+    </label>
+    <div class="acms-admin-flex-fit">
+      <input id="price" type="number" name="price" class="acms-admin-form-width-full" placeholder="1000" data-validator="price" value="{price}" />
+      <input type="hidden" name="field[]" value="price" />
+    </div>
+  </div>
+
+<div class="acms-admin-d-flex acms-admin-flex-column acms-admin-flex-md-row">
+    <fieldset class="acms-admin-d-contents">
+      <legend class="acms-admin-grid-edit-table-heading">
+        <span data-validator="pickup">注目の商品</span>
+      </legend>
+      <div class="acms-admin-flex-fit">
+        <div class="acms-admin-form-checkbox">
+          <input id="pickup-on" type="checkbox" name="pickup[]" {pickup:checked#on} value="on" />
+          <label for="pickup-on">
+            <i class="acms-admin-ico-checkbox"></i>注目の商品にする</label>
+        </div>
+        <input type="hidden" name="field[]" value="pickup" />
+      </div>
+    </fieldset>
+  </div>
+
+</div>
+
+<section>
+  <h2 class="acms-admin-admin-title2">著者</h2>
+  <div class="js-fieldgroup-sortable acms-admin-grid-edit-table">
+    <!-- BEGIN authors:loop -->
+    <div class="sortable-item acms-admin-d-flex acms-admin-flex-column acms-admin-flex-md-row acms-admin-align-items-start acms-admin-align-items-md-center">
+      <div class="item-handle acms-admin-padding-small">
+        <i class="acms-admin-icon-sort"></i>
+      </div>
+      <div class="acms-admin-flex-fit acms-admin-padding-small">
+        <div class="acms-admin-d-flex acms-admin-flex-column acms-admin-flex-md-row acms-admin-padding-small">
+          <label class="acms-admin-grid-edit-table-heading" for="name[]">
+            <span data-validator="name">名前</span>
+            <i class="acms-admin-icon-tooltip js-acms-tooltip-hover" data-acms-tooltip="1名を入力してください"></i>
+          </label>
+          <div class="acms-admin-flex-fit">
+            <input id="name[]" type="text" name="name[]" class="acms-admin-form-width-full" placeholder="山田　太郎" value="{name}" />
+            <div role="alert" aria-live="assertive">
+              <div data-validator-label="name-v-required" class="validator-result-{name:v#required}">
+                <p class="error-text">
+                  <span class="acms-admin-icon acms-admin-icon-attention"></span>必須項目です</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="acms-admin-padding-small">
+        <button type="button" class="item-delete acms-admin-btn-admin acms-admin-btn-admin-danger">削除</button>
+      </div>
+    </div>
+    <!-- END authors:loop -->
+    <template class="item-template">
+      <div class="sortable-item acms-admin-d-flex acms-admin-flex-column acms-admin-flex-md-row acms-admin-align-items-start acms-admin-align-items-md-center">
+        <div class="item-handle acms-admin-padding-small">
+          <i class="acms-admin-icon-sort"></i>
+        </div>
+        <div class="acms-admin-flex-fit acms-admin-padding-small">
+          <div class="acms-admin-d-flex acms-admin-flex-column acms-admin-flex-md-row acms-admin-padding-small">
+            <label class="acms-admin-grid-edit-table-heading" for="name[]">
+              <span data-validator="name">名前</span>
+              <i class="acms-admin-icon-tooltip js-acms-tooltip-hover" data-acms-tooltip="1名を入力してください"></i>
+            </label>
+            <div class="acms-admin-flex-fit">
+              <input id="name[]" type="text" name="name[]" class="acms-admin-form-width-full" placeholder="山田　太郎" />
+              <div role="alert" aria-live="assertive">
+                <div data-validator-label="name-v-required" class="validator-result-1">
+                  <p class="error-text">
+                    <span class="acms-admin-icon acms-admin-icon-attention"></span>必須項目です</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="acms-admin-padding-small">
+          <button type="button" class="item-delete acms-admin-btn-admin acms-admin-btn-admin-danger">削除</button>
+        </div>
+      </div>
+    </template>
+    <div>
+      <button type="button" class="item-insert acms-admin-btn-admin">追加</button>
+    </div>
+  </div>
+  <input type="hidden" name="@authors[]" value="name" />
+  <input type="hidden" name="field[]" value="name" />
+  <input type="hidden" name="name:v#required" id="name-v-required" value="" />
+  <input type="hidden" name="field[]" value="@authors" />
+</section>
+<!-- </form> -->

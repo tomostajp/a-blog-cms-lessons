@@ -1,0 +1,51 @@
+<section>
+  <h2 class="acms-admin-admin-title2">目次</h2>
+  <div class="js-fieldgroup-sortable acms-admin-grid-edit-table">
+    <!-- BEGIN toc:loop -->
+    <div class="sortable-item acms-admin-d-flex acms-admin-flex-column acms-admin-flex-md-row acms-admin-align-items-start acms-admin-align-items-md-center">
+      <div class="item-handle acms-admin-padding-small">
+        <i class="acms-admin-icon-sort"></i>
+      </div>
+      <div class="acms-admin-flex-fit acms-admin-padding-small">
+        <div class="acms-admin-d-flex acms-admin-flex-column acms-admin-flex-md-row acms-admin-padding-small">
+          <label class="acms-admin-grid-edit-table-heading" for="toc-item{id}[]">
+            <span data-validator="toc-item">項目</span>
+          </label>
+          <div class="acms-admin-flex-fit">
+            <input id="toc-item{id}[]" type="text" name="toc-item{id}[]" class="acms-admin-form-width-full" placeholder="1-1 項目名" value="{toc-item}" />
+          </div>
+        </div>
+      </div>
+      <div class="classnameacms-admin-padding-small">
+        <button type="button" class="item-delete acms-admin-btn-admin acms-admin-btn-admin-danger">削除</button>
+      </div>
+    </div>
+    <!-- END toc:loop -->
+    <template class="item-template">
+      <div class="sortable-item acms-admin-d-flex acms-admin-flex-column acms-admin-flex-md-row acms-admin-align-items-start acms-admin-align-items-md-center">
+        <div class="item-handle acms-admin-padding-small">
+          <i class="acms-admin-icon-sort"></i>
+        </div>
+        <div class="acms-admin-flex-fit acms-admin-padding-small">
+          <div class="acms-admin-d-flex acms-admin-flex-column acms-admin-flex-md-row acms-admin-padding-small">
+            <label class="acms-admin-grid-edit-table-heading" for="toc-item{id}[]">
+              <span data-validator="toc-item">項目</span>
+            </label>
+            <div class="acms-admin-flex-fit">
+              <input id="toc-item{id}[]" type="text" name="toc-item{id}[]" class="acms-admin-form-width-full" placeholder="1-1 項目名" />
+            </div>
+          </div>
+        </div>
+        <div class="acms-admin-padding-small">
+          <button type="button" class="item-delete acms-admin-btn-admin acms-admin-btn-admin-danger">削除</button>
+        </div>
+      </div>
+    </template>
+    <div>
+      <button type="button" class="item-insert acms-admin-btn-admin">追加</button>
+    </div>
+  </div>
+  <input type="hidden" name="@toc{id}[]" value="toc-item{id}" />
+  <input type="hidden" name="unit{id}[]" value="toc-item{id}" />
+  <input type="hidden" name="unit{id}[]" value="@toc{id}" />
+</section>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プログラミング入門：JavaScript完全ガイド - Bookshop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <!-- Back Button -->
+        <div class="mb-6">
+            <a href="index.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                検索結果に戻る
+            </a>
+        </div>
+
+        <!-- Book Detail -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+            <div class="md:flex">
+                <!-- Book Cover -->
+                <div class="md:w-1/3 lg:w-1/4">
+                    <img src="https://placehold.co/400x600/3b82f6/ffffff?text=JavaScript" alt="プログラミング入門：JavaScript完全ガイド" class="w-full h-96 object-cover">
+                </div>
+
+                <!-- Book Info -->
+                <div class="md:w-2/3 lg:w-3/4 p-8">
+                    <!-- Genre Badge -->
+                    <div class="mb-4 flex items-center gap-3">
+                        <span class="inline-block px-4 py-2 bg-red-500 text-white text-sm font-semibold rounded-full">注目の商品</span>
+                        <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 text-sm font-medium rounded-full">技術書</span>
+                    </div>
+
+                    <!-- Title -->
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                        プログラミング入門：JavaScript完全ガイド
+                    </h1>
+
+                    <!-- Basic Info -->
+                    <div class="space-y-3 mb-6 text-gray-700">
+                        <div class="flex items-start">
+                            <span class="font-semibold w-24 flex-shrink-0">著者：</span>
+                            <ul class="list-disc list-inside">
+                                <li>山田太郎</li>
+                                <li>佐々木次郎</li>
+                                <li>伊藤三郎</li>
+                            </ul>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="font-semibold w-24 flex-shrink-0">価格：</span>
+                            <span class="text-2xl font-bold text-gray-800">¥3,280</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Book Description -->
+        <div class="mt-8 bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">書籍紹介</h2>
+            <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+                <p>
+                    本書は、プログラミング初心者から中級者まで幅広く対応したJavaScriptの完全ガイドです。基礎文法から始まり、実務で必ず必要となる応用テクニックまで、段階的に学習できる構成になっています。
+                </p>
+                <p>
+                    第1章では変数、データ型、演算子などの基本概念を丁寧に解説。第2章以降では関数、オブジェクト、配列、そして非同期処理といった重要なトピックを実践的なコード例とともに学んでいきます。各章末には理解度を確認できる演習問題を用意しており、学んだ知識を定着させることができます。
+                </p>
+                <p>
+                    特筆すべきは、最新のECMAScript 2024の新機能を網羅している点です。アロー関数、分割代入、スプレッド構文、async/awaitなどのモダンな記法はもちろん、新しく追加された配列メソッドやプロミスの機能強化についても詳しく解説しています。
+                </p>
+                <p>
+                    また、実務で役立つDOM操作、イベント処理、Ajax通信、エラーハンドリングなど、Webアプリケーション開発に必要な知識も充実しています。実際のプロジェクトでよく遭遇する問題とその解決方法についても、豊富なサンプルコードとともに紹介しているため、すぐに実践に活かすことができます。
+                </p>
+                <p>
+                    本書の特徴として、各トピックごとに「よくある間違い」と「ベストプラクティス」を明示している点が挙げられます。初心者が陥りやすいミスを事前に知ることで、効率的に学習を進めることができます。
+                </p>
+                <p>
+                    付録では、開発環境のセットアップ方法、便利なツールやライブラリの紹介、デバッグテクニック、パフォーマンス最適化の方法など、開発者として知っておくべき周辺知識もカバーしています。
+                </p>
+                <p>
+                    JavaScriptを学びたいすべての方に自信を持ってお勧めできる一冊です。本書を通じて、モダンなWeb開発のスキルを確実に身につけることができるでしょう。
+                </p>
+
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">目次</h3>
+                <ol class="list-decimal list-inside pl-4 space-y-1 text-gray-700">
+                    <ul class="list-decimal pl-4">
+                        <li>1-1 変数とデータ型</li>
+                        <li>1-2 演算子</li>
+                        <li>2-1 制御構文</li>
+                    </ul>
+                </ol>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
