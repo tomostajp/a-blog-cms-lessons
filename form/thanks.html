@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ完了</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="/css/acms-admin.min.css">
+    <script src="%{JS_LIB_JQUERY_DIR}jquery-%{JS_LIB_JQUERY_DIR_VERSION}.min.js" charset="UTF-8"></script>
+    <!-- BEGIN_MODULE Js -->
+    <script src="%{ROOT_DIR}acms.js{arguments}" charset="UTF-8" id="acms-js"></script><!-- END_MODULE Js -->
+</head>
+<body class="bg-gray-50">
+    @include("/admin/action.html")
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl w-full bg-white rounded-lg shadow-md p-8">
+            <!-- 成功アイコン -->
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">送信完了</h1>
+                <p class="text-gray-600">お問い合わせありがとうございます。</p>
+            </div>
+
+            <!-- メッセージ -->
+            <div class="bg-gray-50 rounded-lg p-6 mb-8">
+                <p class="text-gray-700 leading-relaxed">
+                    お問い合わせ内容を受け付けました。<br>
+                    ご入力いただいたメールアドレス宛に確認メールをお送りしております。<br><br>
+                    内容を確認の上、2〜3営業日以内に担当者よりご連絡させていただきます。<br>
+                    今しばらくお待ちくださいますようお願い申し上げます。
+                </p>
+            </div>
+
+            <!-- 注意事項 -->
+            <div class="border-l-4 border-blue-500 bg-blue-50 p-4 mb-8">
+                <h2 class="font-medium text-blue-900 mb-2">確認メールが届かない場合</h2>
+                <ul class="text-sm text-blue-800 space-y-1">
+                    <li>• 迷惑メールフォルダをご確認ください</li>
+                    <li>• メールアドレスが正しく入力されているかご確認ください</li>
+                    <li>• ドメイン指定受信を設定している場合は、当サイトからのメールを受信できるよう設定してください</li>
+                </ul>
+            </div>
+
+            <!-- ボタン -->
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a 
+                    href="/"
+                    class="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                >
+                    トップページへ
+                </a>
+                <a 
+                    href="/contact/"
+                    class="flex-1 text-center bg-white hover:bg-gray-50 text-gray-700 font-medium py-3 px-6 rounded-lg border border-gray-300 transition duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                >
+                    お問い合わせに戻る
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% set ogp = module('V2_Ogp') %}
+<title>{{ ogp.title }}</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    li span[data-status="current"] {
+        background-color: #000;
+        color: white;
+    }
+</style>
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+<link rel="stylesheet" href="/css/acms-admin.min.css">
+{% set js = module('V2_Js') %}
+<script src="{{ JS_LIB_JQUERY_DIR }}jquery-{{ JS_LIB_JQUERY_DIR_VERSION }}.min.js" charset="UTF-8"></script>
+<script src="{{ ROOT_DIR }}acms.js{{ js.arguments }}" charset="UTF-8" id="acms-js"></script>

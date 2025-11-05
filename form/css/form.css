@@ -1,0 +1,117 @@
+/* input2.html用のカスタムスタイル - input.htmlと同じ見た目にする */
+
+/* コンテナ全体のスペーシング */
+.acms-admin-grid-edit-table {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* space-y-6相当 */
+}
+
+/* 各フィールドの行 */
+.acms-admin-grid-edit-table .acms-admin-d-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ラベルのスタイル - input.htmlのlabelと同じ */
+.acms-admin-grid-edit-table-heading {
+    display: block;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: #374151; /* text-gray-700 */
+    margin-bottom: 0.5rem; /* mb-2 */
+}
+
+/* ラベル内のspanに必須マークのスタイルを適用 */
+.acms-admin-grid-edit-table-heading span[data-validator]::after {
+    content: " *";
+    color: #ef4444; /* text-red-500 */
+}
+
+/* フィールドコンテナ */
+.acms-admin-flex-fit {
+    flex: 1;
+}
+
+/* input と textarea の共通スタイル - input.htmlと同じ */
+.acms-admin-form-width-full {
+    width: 100%; /* w-full */
+    padding: 0.75rem 1rem; /* py-3 px-4 */
+    border: 1px solid #d1d5db; /* border border-gray-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    outline: none;
+    transition: all 0.2s; /* transition duration-200 */
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* フォーカス時のスタイル */
+.acms-admin-form-width-full:focus {
+    border-color: transparent; /* focus:border-transparent */
+    box-shadow: 0 0 0 2px #3b82f6; /* focus:ring-2 focus:ring-blue-500 */
+}
+
+/* textarea の高さとリサイズ */
+.acms-admin-form-width-full[name="message"] {
+    min-height: 150px; /* rows="6"相当 */
+    resize: vertical; /* resize-vertical */
+}
+
+/* エラーメッセージのスタイル */
+.error-text {
+    color: #ef4444; /* text-red-500 */
+    font-size: 0.875rem; /* text-sm */
+    margin-top: 0.5rem;
+}
+
+.error-text .acms-admin-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+div[data-validator-label].validator-result-error,
+div[data-validator-label][class*="validator-result-"][class$="-error"] {
+    display: block;
+}
+
+/* ホバー効果 */
+.acms-admin-form-width-full:hover {
+    border-color: #9ca3af; /* hover時に少し濃く */
+}
+
+/* プレースホルダーのスタイル */
+.acms-admin-form-width-full::placeholder {
+    color: #9ca3af; /* placeholder-gray-400 */
+}
+
+/* レスポンシブ: 大きい画面でも縦並びを維持（input.htmlと同じ） */
+@media (min-width: 768px) {
+    .acms-admin-d-flex.acms-admin-flex-md-row {
+        flex-direction: column;
+    }
+}
+
+.button {
+  display: block;
+  margin: 20px auto;
+  background-color: #2563eb; /* bg-blue-600 */
+  color: white;              /* text-white */
+  font-weight: 500;          /* font-medium */
+  padding-top: 0.75rem;      /* py-3 */
+  padding-bottom: 0.75rem;
+  padding-left: 1.5rem;      /* px-6 */
+  padding-right: 1.5rem;
+  border-radius: 0.5rem;     /* rounded-lg */
+  transition: all 0.2s;      /* transition duration-200 */
+  outline: none;             /* focus:outline-none */
+}
+
+.button:hover {
+  background-color: #1d4ed8; /* hover:bg-blue-700 */
+}
+
+.button:focus {
+  box-shadow: 0 0 0 2px #3b82f6; /* focus:ring-2 focus:ring-blue-500 */
+  outline-offset: 2px;           /* focus:ring-offset-2 */
+}

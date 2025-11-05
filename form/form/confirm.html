@@ -1,0 +1,60 @@
+<!-- ヘッダー -->
+<div class="mb-8 text-center">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">入力内容の確認</h1>
+    <p class="text-gray-600">以下の内容でよろしければ「送信する」ボタンを押してください。</p>
+</div>
+
+<!-- 確認内容 -->
+<div class="space-y-6 mb-8">
+    <!-- 名前 -->
+    <div class="border-b border-gray-200 pb-4">
+        <dt class="text-sm font-medium text-gray-700 mb-2">名前</dt>
+        <dd class="text-base text-gray-900">{myname}</dd>
+    </div>
+
+    <!-- メールアドレス -->
+    <div class="border-b border-gray-200 pb-4">
+        <dt class="text-sm font-medium text-gray-700 mb-2">メールアドレス</dt>
+        <dd class="text-base text-gray-900">{email}</dd>
+    </div>
+
+    <!-- メッセージ -->
+    <div class="border-b border-gray-200 pb-4">
+        <dt class="text-sm font-medium text-gray-700 mb-2">メッセージ</dt>
+        <dd class="text-base text-gray-900 whitespace-pre-wrap">{message}</dd>
+    </div>
+</div>
+
+<!-- ボタン -->
+<div class="flex flex-col sm:flex-row gap-4">
+    <!-- 戻るボタン -->
+    <form action="" method="post" class="js-unload_alert form-button form-button-return">
+      <input type="hidden" name="step" value="reapply" />
+      <input type="hidden" name="takeover" value="{takeover}" />
+    <button 
+        type="submit"
+        name="ACMS_POST_Form_Chain"
+        value="戻る"
+        class="flex-1 bg-white hover:bg-gray-50 text-gray-700 font-medium py-3 px-6 rounded-lg border border-gray-300 transition duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+    >
+        ← 入力画面に戻る
+    </button>
+    </form>
+    
+    <!-- 送信ボタン -->
+    <form action="thanks.html" method="post" class="js-unload_alert form-button form-button-send" enctype="multipart/form-data">
+          <input type="hidden" name="To[]" value="{email}" />
+      <input type="hidden" name="step" value="result" />
+      <input type="hidden" name="takeover" value="{takeover}" />
+      <input type="hidden" name="id" value="contact" />
+
+    <button 
+        type="submit"
+        name="ACMS_POST_Form_Submit"
+        value="送信"
+        class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+    >
+        送信する
+    </button>
+</form>
+</div>

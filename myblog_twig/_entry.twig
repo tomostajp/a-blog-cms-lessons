@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    {% include('/include/head.twig') %}
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    @include("/admin/action.html")
+    <div class="max-w-4xl mx-auto px-4 py-8">
+        <!-- Navigation -->
+        <nav class="mb-8">
+            <a href="index.html" class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center">
+                ← ブログ一覧に戻る
+            </a>
+        </nav>
+
+        <!-- Article -->
+        {% set entryBody = module('V2_Entry_Body') %}
+        {{ include('/admin/entry/edit.twig', { body: entryBody }) }}
+        {% for entry in entryBody.items %}
+        <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+            {{ include('/admin/module/setting.twig', { moduleInfo: entryBody }) }}
+            <!-- Featured Image -->
+            {% if entry.mainImage.path %}
+            <div class="w-full h-64 md:h-80">
+                <img src="{{ entry.mainImage.path }}" alt="" class="w-full h-full object-cover">
+            </div>
+            {% endif %}
+
+            <!-- Article Content -->
+            <div class="p-6 md:p-8">
+                <!-- Meta -->
+                <div class="flex items-center text-sm text-gray-500 mb-4">
+                    <time datetime="{{ entry.datetime|date('Y-m-d') }}">{{ entry.datetime|date('Y年n月j日') }}</time>
+                    {% if entry.category.items %}
+                    <span class="mx-2">•</span>
+                    {% for category in entry.category.items %}
+                    <a href="{{ category.url }}"
+                        class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">{{ category.name }}</a>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <!-- Title -->
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 leading-tight">
+                    {{ entry.title }}
+                </h1>
+
+                <!-- Article Body -->
+                <div class="prose prose-gray max-w-none">
+                    {{ entry.body|raw }}
+                </div>
+
+                <!-- Tags -->
+                {% if entry.tags %}
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <div class="flex flex-wrap gap-2">
+                        {% for tag in entry.tags %}
+                        <a href="{{ tag.url }}" class="text-blue-800 text-xs px-2 py-1">#{{ tag.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {{ include('admin/entry/action.twig', { entry }) }}
+        </article>
+
+        <!-- Related Posts -->
+        {% set entryTagRelational = module('V2_Entry_TagRelational', 'tag_relational_v2') %}
+        {{ entryTagRelational.items|json_encode() }}
+        {% if entryTagRelational.items %}
+        <section class="mt-12">
+            {{ include('/admin/module/setting.twig', { moduleInfo: entryTagRelational.moduleInfo }) }}
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">関連記事</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                {% for entry in entryTagRelational.items %}
+                <article
+                    class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200">
+                    {% if entry.mainImage.path %}
+                    <img src="{{ entry.mainImage.path }}" alt="" class="w-full h-32 object-cover">
+                    {% else %}
+                    <img src="assets/img/no-image.png" alt="" class="w-full h-32 object-cover">
+                    {% endif %}
+                    <div class="p-4">
+                        <time class="text-sm text-gray-500">{{ entry.datetime|date('Y年n月j日') }}</time>
+                        <h3 class="text-lg font-semibold text-gray-800 mt-1 mb-2 hover:text-blue-600 transition-colors">
+                            <a href="{{ entry.url }}">{{ entry.title }}</a>
+                        </h3>
+                        <p class="text-gray-600 text-sm">{{ entry.summary }}</p>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+        {% endfor %}
+    </div>
+</body>
+
+</html>

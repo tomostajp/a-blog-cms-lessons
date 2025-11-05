@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    {% include('/include/head.twig') %}
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    @include("/admin/action.html")
+    <div class="max-w-4xl mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">{{ BLOG_NAME }}</h1>
+            {% if touch('Touch_Category') %}
+            <h2 class="text-2xl">{{ CATEGORY_NAME }}</h2>
+            {% elseif touch('Touch_Tag') %}
+            <h2 class="text-2xl">{{ TAG }}</h2>
+            {% endif %}
+        </header>
+
+        <!-- INSERT_YOUR_CODE -->
+        <!-- カテゴリ一覧 -->
+        {% set categoryTree = module('V2_Category_Tree') %}
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">カテゴリ</h2>
+            <ul class="flex flex-wrap gap-3">
+                {% for category in categoryTree.items %}
+                <li>
+                    {% if category.cid == CID %}
+                    <a href="{{ category.url }}" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-full font-bold cursor-default">{{ category.name }}</a>
+                    {% else %}
+                    <a href="{{ category.url }}" class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition-colors duration-200">{{ category.name }}</a>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <!-- Blog Posts -->
+        {% set entries = module('V2_Entry_Summary', 'entry_list_v2') %}
+        {{ include('/admin/module/setting.twig', { moduleInfo: entries.moduleInfo }) }}
+        <div class="space-y-8">
+            <!-- Post 1 -->
+            {% for entry in entries.items %}
+            <a href="{{ entry.url }}" class="block">
+                <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200 cursor-pointer">
+                    <div class="md:flex">
+                        <div class="md:w-1/3">
+                            {% if entry.mainImage.path %}
+                            <img src="{{ entry.mainImage.path }}" alt="" class="w-full h-48 md:h-full object-cover">
+                            {% else %}
+                            <img src="assets/img/no-image.png" alt="" class="w-full h-48 md:h-full object-cover">
+                            {% endif %}
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <time datetime="{{ entry.datetime|date('Y-m-d') }}">{{ entry.datetime|date('Y年n月j日') }}</time>
+                            </div>
+                            <h2 class="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors">
+                                {{ entry.title }}
+                            </h2>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                {{ entry.summary }}
+                            </p>
+                            <span class="text-blue-600 hover:text-blue-800 font-medium text-sm">
+                                続きを読む →
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {{
+        include('include/pagination.twig', {
+            pagination: entries.pagination,
+        })
+        }}
+    </div>
+</body>
+
+</html>

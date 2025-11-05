@@ -1,0 +1,95 @@
+/* ページネーションコンテナ */
+.pager {
+    margin-top: 3rem;
+    /* mt-12 */
+    display: flex;
+    justify-content: center;
+}
+
+.pager-info {
+    margin-bottom: 0.5rem;
+    /* acms-margin-bottom-small */
+    margin-top: 1.875rem;
+    /* acms-margin-top-large */
+    font-weight: 500;
+}
+
+.pager-info .font-medium {
+    font-weight: 500;
+}
+
+/* ページネーション リスト */
+.pager ul {
+    display: flex;
+    gap: 0.5rem;
+    /* gap-2 */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    clear: both;
+    /* clearfix */
+}
+
+/* ページネーション アイテム */
+.pager-item {
+    display: inline-flex;
+}
+
+.pager-item span,
+.pager-item a span {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    /* px-3 py-2 */
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 500;
+    border: 1px solid #d1d5db;
+    /* border-gray-300 */
+    border-radius: 0.375rem;
+    /* rounded-md */
+}
+
+/* 現在のページ */
+.pager-item span[data-status="current"] {
+    background-color: #fff;
+    border-color: #d1d5db;
+    cursor: default;
+}
+
+/* リンク */
+.pager-item a {
+    text-decoration: none;
+}
+
+.pager-item a span {
+    color: #111827;
+    /* デフォルトのテキスト色 */
+    background-color: #fff;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.pager-item a span:hover {
+    background-color: #f9fafb;
+    /* hover:bg-gray-50 */
+}
+
+/* 前へ/次へボタン */
+.pager-item:first-child a span,
+.pager-item:last-child a span {
+    color: #6b7280;
+    /* text-gray-500 */
+}
+
+.pager-item:last-child a span {
+    background-color: #fff;
+}
+
+/* 省略記号 */
+.pager-item:has(> *:only-child:contains("...")) {
+    pointer-events: none;
+}
+
+.pager-item span {
+    background-color: #000;
+    color: white;
+}

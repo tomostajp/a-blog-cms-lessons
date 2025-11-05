@@ -1,0 +1,72 @@
+<!-- BEGIN_MODULE Form -->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/form.css">
+
+    <link rel="stylesheet" href="/css/acms-admin.min.css">
+    <script src="%{JS_LIB_JQUERY_DIR}jquery-%{JS_LIB_JQUERY_DIR_VERSION}.min.js" charset="UTF-8"></script>
+    <!-- BEGIN_MODULE Js -->
+    <script src="%{ROOT_DIR}acms.js{arguments}" charset="UTF-8" id="acms-js"></script><!-- END_MODULE Js -->
+</head>
+
+<body class="bg-gray-50">
+    @include("/admin/action.html")
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl w-full bg-white rounded-lg shadow-md p-8">
+            <!-- BEGIN step -->
+            @include("/contact/form/input.html")
+            <!-- END step-->
+
+            <!-- BEGIN step#reapply -->
+            @include("/contact/form/input.html")
+            <!-- END step#reapply -->
+
+            <!-- BEGIN step#confirm -->
+            @include("/contact/form/confirm.html")
+            <!-- END step#confirm -->
+
+            <!-- BEGIN step#forbidden -->
+            <div>
+                <section>
+                    <h2 class="heading-lg">不正なアクセスです。</h2>
+                    <div class="form-message-group">
+                        <p class="form-message">お手数ですが、はじめからやり直して下さい。</p>
+                        <div class="form-button-group">
+                            <p class="form-message-back"><a href="%{BASE_URL}contact/"
+                                    class="button is-width-lg is-bg-white-bordered">お問い合わせフォームに戻る</a></p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- END step#forbidden -->
+
+            <!-- BEGIN step#repeated -->
+            <div>
+                <section>
+                    <h2 class="heading-lg">連続投稿は禁止されています。</h2>
+                    <div class="form-message-group">
+                        <p class="form-message">入力された内容は正常に送信されました。<br>送信内容は、登録されたメールアドレス宛にお送りした確認メールからご確認ください。</p>
+                        <p class="form-message-back">
+                            <a href="%{BASE_URL}" class="button is-width-lg is-bg-white-bordered">ホームに戻る</a>
+                        </p>
+                    </div>
+                </section>
+            </div>
+            <!-- END step#repeated -->
+
+            <!-- BEGIN error -->
+            <!-- フォームID : {formID} / エラー項目 : {errorKey} -->
+            <!-- END error -->
+        </div>
+    </div>
+</body>
+
+</html>
+<!-- END_MODULE Form -->

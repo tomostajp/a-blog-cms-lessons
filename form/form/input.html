@@ -1,0 +1,66 @@
+<!-- ヘッダー -->
+<div class="mb-8 text-center">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">お問い合わせ</h1>
+    <p class="text-gray-600">ご質問やご要望がございましたら、お気軽にお問い合わせください。</p>
+</div>
+
+<!-- フォーム -->
+<form action="" method="post" class="js-validator" enctype="multipart/form-data">
+<div class="acms-admin-grid-edit-table">
+  <div class="acms-admin-d-flex acms-admin-flex-column acms-admin-flex-md-row">
+    <label class="acms-admin-grid-edit-table-heading" for="myname">
+      <span data-validator="myname">お名前</span>
+    </label>
+    <div class="acms-admin-flex-fit">
+      <input id="myname" type="text" name="myname" class="acms-admin-form-width-full" placeholder="山田　太郎" data-validator="myname" value="{myname}" />
+      <input type="hidden" name="myname:v#required" id="myname-v-required" value="" />
+      <div role="alert" aria-live="assertive">
+        <div data-validator-label="myname-v-required" class="validator-result-{myname:v#required}">
+          <p class="error-text">
+            <span class="acms-admin-icon acms-admin-icon-attention"></span>お名前を記入してください</p>
+        </div>
+      </div>
+      <input type="hidden" name="field[]" value="myname" />
+    </div>
+  </div>
+  <div class="acms-admin-d-flex acms-admin-flex-column acms-admin-flex-md-row">
+    <label class="acms-admin-grid-edit-table-heading" for="email">
+      <span data-validator="email">メールアドレス</span>
+    </label>
+    <div class="acms-admin-flex-fit">
+      <input id="email" type="email" name="email" class="acms-admin-form-width-full" placeholder="info@example.com" data-validator="email" value="{email}" />
+      <input type="hidden" name="email:v#required" id="email-v-required" value="" />
+      <div role="alert" aria-live="assertive">
+        <div data-validator-label="email-v-required" class="validator-result-{email:v#required}">
+          <p class="error-text">
+            <span class="acms-admin-icon acms-admin-icon-attention"></span>メールアドレスを記入してください</p>
+        </div>
+      </div>
+      <input type="hidden" name="email:c" value="r" />
+      <input type="hidden" name="field[]" value="email" />
+    </div>
+  </div>
+  <div class="acms-admin-d-flex acms-admin-flex-column acms-admin-flex-md-row">
+    <label class="acms-admin-grid-edit-table-heading" for="message">
+      <span data-validator="message">メッセージ</span>
+    </label>
+    <div class="acms-admin-flex-fit">
+      <textarea id="message" name="message" class="acms-admin-form-width-full" data-validator="message">{message}</textarea>
+      <input type="hidden" name="message:v#required" id="message-v-required" value="" />
+      <div role="alert" aria-live="assertive">
+        <div data-validator-label="message-v-required" class="validator-result-{message:v#required}">
+          <p class="error-text">
+            <span class="acms-admin-icon acms-admin-icon-attention"></span>メッセージを記入してください</p>
+        </div>
+      </div>
+      <input type="hidden" name="field[]" value="message" />
+    </div>
+  </div>
+</div>
+
+        <input type="hidden" name="step" value="confirm" />
+        <input type="hidden" name="error" value="reapply" />
+
+        <input type="hidden" name="id" value="contact" />
+        <input type="submit" name="ACMS_POST_Form_Confirm" value="内容の確認へ" id="btnConfirm" class="button is-width-lg" />
+</form>
